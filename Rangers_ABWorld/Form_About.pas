@@ -33,7 +33,7 @@ uses Form_Main;
 
 procedure TFormAbout.FormShow(Sender: TObject);
 begin
-	Label4.Caption:='0.'+IntToStr(GVersion);
+  Label4.Caption := '0.' + IntToStr(GVersion);
 end;
 
 end.

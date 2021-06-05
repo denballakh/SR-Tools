@@ -36,51 +36,48 @@ var
 
 implementation
 
-uses Form_Main,aPathBuild,EC_Str,Global,GR_DirectX3D8;
+uses Form_Main, aPathBuild, EC_Str, Global, GR_DirectX3D8;
 
 {$R *.dfm}
 
 procedure TFormOptions.FormShow(Sender: TObject);
 begin
-	EditUnitPath.Text:=GUnitPath;
-    EditRangersPath.Text:=GRangersPath;
+  EditUnitPath.Text := GUnitPath;
+  EditRangersPath.Text := GRangersPath;
 
-    EditWLCount.Text:=IntToStr(GWLCount);
-    EditWLFront.Text:=Format('%d,%d,%d,%d',[D3DCOLOR_A(GWLFront),D3DCOLOR_R(GWLFront),D3DCOLOR_G(GWLFront),D3DCOLOR_B(GWLFront)]);
-    EditWLBack.Text:=Format('%d,%d,%d,%d',[D3DCOLOR_A(GWLBack),D3DCOLOR_R(GWLBack),D3DCOLOR_G(GWLBack),D3DCOLOR_B(GWLBack)]);
+  EditWLCount.Text := IntToStr(GWLCount);
+  EditWLFront.Text := Format('%d,%d,%d,%d', [D3DCOLOR_A(GWLFront), D3DCOLOR_R(GWLFront), D3DCOLOR_G(
+    GWLFront), D3DCOLOR_B(GWLFront)]);
+  EditWLBack.Text := Format('%d,%d,%d,%d', [D3DCOLOR_A(GWLBack), D3DCOLOR_R(GWLBack), D3DCOLOR_G(
+    GWLBack), D3DCOLOR_B(GWLBack)]);
 end;
 
 procedure TFormOptions.BitBtn1Click(Sender: TObject);
 begin
-	GUnitPath:=LowerCaseEx(BuildPathTrim(EditUnitPath.Text));
-    RegUser_SetString('','UnitPath',GUnitPath);
+  GUnitPath := LowerCaseEx(BuildPathTrim(EditUnitPath.Text));
+  RegUser_SetString('', 'UnitPath', GUnitPath);
 
-    GRangersPath:=LowerCaseEx(BuildPathTrim(EditRangersPath.Text));
-    RegUser_SetString('','RangersPath',GRangersPath);
+  GRangersPath := LowerCaseEx(BuildPathTrim(EditRangersPath.Text));
+  RegUser_SetString('', 'RangersPath', GRangersPath);
 
-    GWLCount:=max(8,StrToIntEC(EditWLCount.Text));
-	RegUser_SetDWORD('','WLCount',GWLCount);
+  GWLCount := max(8, StrToIntEC(EditWLCount.Text));
+  RegUser_SetDWORD('', 'WLCount', GWLCount);
 
-    if GetCountParEC(EditWLFront.Text,',')>=4 then begin
-	    GWLFront:=D3DCOLOR_ARGB(
-        	StrToIntEc(GetStrParEC(EditWLFront.Text,0,',')),
-        	StrToIntEc(GetStrParEC(EditWLFront.Text,1,',')),
-        	StrToIntEc(GetStrParEC(EditWLFront.Text,2,',')),
-        	StrToIntEc(GetStrParEC(EditWLFront.Text,3,','))
-        );
-	    RegUser_SetDWORD('','WLFront',GWLFront);
-    end;
+  if GetCountParEC(EditWLFront.Text, ',') >= 4 then
+  begin
+    GWLFront := D3DCOLOR_ARGB(StrToIntEc(GetStrParEC(EditWLFront.Text, 0, ',')),
+      StrToIntEc(GetStrParEC(EditWLFront.Text, 1, ',')), StrToIntEc(GetStrParEC(EditWLFront.Text, 2, ',')),
+      StrToIntEc(GetStrParEC(EditWLFront.Text, 3, ',')));
+    RegUser_SetDWORD('', 'WLFront', GWLFront);
+  end;
 
-    if GetCountParEC(EditWLBack.Text,',')>=4 then begin
-	    GWLBack:=D3DCOLOR_ARGB(
-        	StrToIntEc(GetStrParEC(EditWLBack.Text,0,',')),
-        	StrToIntEc(GetStrParEC(EditWLBack.Text,1,',')),
-        	StrToIntEc(GetStrParEC(EditWLBack.Text,2,',')),
-        	StrToIntEc(GetStrParEC(EditWLBack.Text,3,','))
-        );
-	    RegUser_SetDWORD('','WLBack',GWLBack);
-    end;
+  if GetCountParEC(EditWLBack.Text, ',') >= 4 then
+  begin
+    GWLBack := D3DCOLOR_ARGB(StrToIntEc(GetStrParEC(EditWLBack.Text, 0, ',')),
+      StrToIntEc(GetStrParEC(EditWLBack.Text, 1, ',')), StrToIntEc(GetStrParEC(EditWLBack.Text, 2, ',')),
+      StrToIntEc(GetStrParEC(EditWLBack.Text, 3, ',')));
+    RegUser_SetDWORD('', 'WLBack', GWLBack);
+  end;
 end;
 
 end.
-

@@ -35,31 +35,29 @@ uses
   ABOpt in 'ABOpt.pas',
   Form_UnitPath in 'Form_UnitPath.pas' {FormUnitPath};
 
-
-
 {$R *.res}
 
-procedure TimerProc(uTimerID:DWORD; uMessage: DWORD; dwUser:DWORD; dw1, dw2: DWORD) stdcall;
+procedure TimerProc(uTimerID: DWORD; uMessage: DWORD; dwUser: DWORD; dw1, dw2: DWORD) stdcall;
 //var
-//	msg:TMsg;
+//  msg:TMsg;
 begin
-//	if not PeekMessage(msg,Application.Handle,0,0,PM_NOREMOVE) then begin
-	    PostMessage(Application.Handle,$400+123,0,0);
-//    end;
+  //  if not PeekMessage(msg,Application.Handle,0,0,PM_NOREMOVE) then begin
+  PostMessage(Application.Handle, $400 + 123, 0, 0);
+  //    end;
 end;
 
 var
-    ztimer:DWORD;
+  ztimer: DWORD;
 begin
-	Application.Initialize;
-	Application.CreateForm(TFormMain, FormMain);
+  Application.Initialize;
+  Application.CreateForm(TFormMain, FormMain);
   Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormSaveEnd, FormSaveEnd);
   Application.CreateForm(TFormAbout, FormAbout);
   Application.CreateForm(TFormUnitPath, FormUnitPath);
   timeBeginPeriod(1);
-    ztimer:=timeSetEvent(20,1,@TimerProc,0,TIME_PERIODIC or TIME_CALLBACK_FUNCTION);
-	Application.Run;
-    timeKillEvent(ztimer);
-    timeEndPeriod(1);
+  ztimer := timeSetEvent(20, 1, @TimerProc, 0, TIME_PERIODIC or TIME_CALLBACK_FUNCTION);
+  Application.Run;
+  timeKillEvent(ztimer);
+  timeEndPeriod(1);
 end.
