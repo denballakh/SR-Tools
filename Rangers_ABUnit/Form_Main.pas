@@ -581,14 +581,16 @@ begin
 end;
 
 procedure TFormMain.UpdateCaption;
-var
-  tstr: WideString;
+// var
+//   tstr: WideString;
 begin
-  tstr := '3DE';
-  if GFileName <> '' then
-    tstr := tstr + ' [' + File_Name(GFileName) + ']';
+  // tstr := '3DE';
+  // if GFileName <> '' then
+  //   tstr := tstr + ' [' + File_Name(GFileName) + ']';
 
-  Caption := tstr;
+  // Caption := tstr;
+
+  Caption := File_Name(GFileName);
 end;
 
 procedure TFormMain.UpdateITime;

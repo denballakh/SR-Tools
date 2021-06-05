@@ -13,14 +13,14 @@ uses
   EC_Mem in 'EC_Mem.pas',
   EC_Str in 'EC_Str.pas',
   EC_Thread in 'EC_Thread.pas',
-  GR_DirectX in '..\Rangers_ABUnit\GR_DirectX.pas',
-  GR_DirectX3D8 in '..\Rangers_ABUnit\GR_DirectX3D8.pas',
+  GR_DirectX in 'GR_DirectX.pas',
+  GR_DirectX3D8 in 'GR_DirectX3D8.pas',
   ABTriangle in 'ABTriangle.pas',
   ab_Obj3D in 'ab_Obj3D.pas',
   ab_Tex in 'ab_Tex.pas',
   ABLine in 'ABLine.pas',
   ABPoint in 'ABPoint.pas',
-  VOper in '..\Rangers_ABUnit\VOper.pas',
+  VOper in 'VOper.pas',
   Global in 'Global.pas',
   aMyFunction in 'aMyFunction.pas',
   WorldLine in 'WorldLine.pas',
@@ -50,6 +50,7 @@ var
   ztimer: DWORD;
 begin
   Application.Initialize;
+  Application.Title := 'ABWorld';
   Application.CreateForm(TFormMain, FormMain);
   Application.CreateForm(TFormOptions, FormOptions);
   Application.CreateForm(TFormSaveEnd, FormSaveEnd);

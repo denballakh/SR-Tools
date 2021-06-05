@@ -1442,14 +1442,15 @@ begin
 end;
 
 procedure TFormMain.UpdateCaption;
-var
-  tstr: WideString;
+// var
+//   tstr: WideString;
 begin
-  tstr := 'Rangers ABWorld v0.' + IntToStr(GVersion);
-  if GFileName <> '' then
-    tstr := tstr + ' [' + File_Name(GFileName) + ']';
+  // tstr := 'Rangers ABWorld v0.' + IntToStr(GVersion);
+  // if GFileName <> '' then
+  //   tstr := tstr + ' [' + File_Name(GFileName) + ']';
+  // Caption := tstr;
 
-  Caption := tstr;
+  Caption := File_Name(GFileName);
 end;
 
 procedure TFormMain.UpdateInfo;
@@ -1559,9 +1560,9 @@ begin
   FBGGraph.VerCount := 4;
   FBGGraph.VerOpen;
   FBGGraph.Ver(0)^ := abVer3D(0, 0, 1, 0, 0, $ffffffff);
-  FBGGraph.Ver(1)^ := abVer3D(800, 0, 1, 1, 0, $ffffffff);
-  FBGGraph.Ver(2)^ := abVer3D(800, 600, 1, 1, 1, $ffffffff);
-  FBGGraph.Ver(3)^ := abVer3D(0, 600, 1, 0, 1, $ffffffff);
+  FBGGraph.Ver(1)^ := abVer3D(Panel3D.Width, 0, 1, 1, 0, $ffffffff);
+  FBGGraph.Ver(2)^ := abVer3D(Panel3D.Width, Panel3D.Height, 1, 1, 1, $ffffffff);
+  FBGGraph.Ver(3)^ := abVer3D(0, Panel3D.Height, 1, 0, 1, $ffffffff);
   FBGGraph.VerClose;
   FBGGraph.UnitAddTriangle(0, 1, 2, GProgrammDir + '\bg.jpg');
   FBGGraph.UnitAddTriangle(2, 3, 0, GProgrammDir + '\bg.jpg');

@@ -385,7 +385,7 @@ begin
   GHTimerFreq := 0;
   QueryPerformanceFrequency(GHTimerFreq);
 
-  AssignFile(GR_FL, 'c:\########.log');
+  AssignFile(GR_FL, '########.log');
   Rewrite(GR_FL);
   writeln(GR_FL, 'Start');
   CloseFile(GR_FL);

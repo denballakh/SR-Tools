@@ -5,8 +5,8 @@ uses
   MMSystem,
   Forms,
   Form_Main in 'Form_Main.pas' {FormMain},
-  GR_DirectX3D8 in 'GR_DirectX3D8.pas',
-  GR_DirectX in 'GR_DirectX.pas',
+  GR_DirectX3D8 in '..\Rangers_ABWorld\GR_DirectX3D8.pas',
+  GR_DirectX in '..\Rangers_ABWorld\GR_DirectX.pas',
   ab_Tex in '..\Rangers_ABWorld\ab_Tex.pas',
   ab_Obj3D in 'ab_Obj3D.pas',
   EC_Thread in '..\Rangers_ABWorld\EC_Thread.pas',
@@ -19,7 +19,7 @@ uses
   EC_Str in '..\Rangers_ABWorld\EC_Str.pas',
   ABPoint in 'ABPoint.pas',
   ABTriangle in 'ABTriangle.pas',
-  VOper in 'VOper.pas',
+  VOper in '..\Rangers_ABWorld\VOper.pas',
   ABLine in 'ABLine.pas',
   ABKey in 'ABKey.pas',
   Form_Group in 'Form_Group.pas' {FormGroup},
@@ -37,6 +37,7 @@ var
   ztimer: DWORD;
 begin
   Application.Initialize;
+  Application.Title := 'ABUnit';
   Application.CreateForm(TFormMain, FormMain);
   Application.CreateForm(TFormGroup, FormGroup);
   Application.CreateForm(TFormKey, FormKey);

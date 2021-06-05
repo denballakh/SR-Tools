@@ -31,12 +31,12 @@ end;
 
 function Angle360ToRad(a: single): single;
 begin
-  result := a / 180.0 * 3.1415;
+  result := a / 180.0 * pi;
 end;
 
 function AngleRadTo360(a: single): single;
 begin
-  result := a * 180.0 / 3.1415;
+  result := a * 180.0 / pi;
 end;
 
 end.
