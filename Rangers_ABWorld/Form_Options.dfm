@@ -39,7 +39,6 @@ object FormOptions: TFormOptions
     Width = 345
     Height = 185
     ActivePage = TabSheet1
-    TabIndex = 0
     TabOrder = 2
     object TabSheet1: TTabSheet
       Caption = 'Path'

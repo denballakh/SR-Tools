@@ -54,10 +54,11 @@ end;
 
 procedure TFormOptions.BitBtn1Click(Sender: TObject);
 begin
-  GUnitPath := LowerCaseEx(BuildPathTrim(EditUnitPath.Text));
+
+  GUnitPath := LowerCaseEx(EditUnitPath.Text);
   RegUser_SetString('', 'UnitPath', GUnitPath);
 
-  GRangersPath := LowerCaseEx(BuildPathTrim(EditRangersPath.Text));
+  GRangersPath := LowerCaseEx(EditRangersPath.Text);
   RegUser_SetString('', 'RangersPath', GRangersPath);
 
   GWLCount := max(8, StrToIntEC(EditWLCount.Text));

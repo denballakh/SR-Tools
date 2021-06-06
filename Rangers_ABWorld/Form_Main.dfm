@@ -1,8 +1,8 @@
 object FormMain: TFormMain
-  Left = 191
-  Top = 105
-  Width = 634
-  Height = 510
+  Left = 403
+  Top = 247
+  Width = 873
+  Height = 643
   Caption = 'Rangers ABWorld'
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -19,17 +19,17 @@ object FormMain: TFormMain
   PixelsPerInch = 96
   TextHeight = 13
   object Panel1: TPanel
-    Left = 440
+    Left = 679
     Top = 0
     Width = 178
-    Height = 425
+    Height = 558
     Align = alRight
     TabOrder = 0
     object NotebookAction: TNotebook
       Left = 1
       Top = 1
       Width = 176
-      Height = 423
+      Height = 556
       Align = alClient
       TabOrder = 0
       object TPage
@@ -98,7 +98,7 @@ object FormMain: TFormMain
           Width = 97
           Height = 21
           Style = csDropDownList
-          ItemHeight = 0
+          ItemHeight = 13
           TabOrder = 1
           OnChange = ComboBoxUnitKeyGroupChange
         end
@@ -208,7 +208,7 @@ object FormMain: TFormMain
           Top = 72
           Width = 113
           Height = 21
-          ItemHeight = 0
+          ItemHeight = 13
           TabOrder = 2
           OnChange = ComboBoxZoneGraphChange
         end
@@ -369,8 +369,8 @@ object FormMain: TFormMain
   end
   object Panel2: TPanel
     Left = 0
-    Top = 425
-    Width = 618
+    Top = 558
+    Width = 857
     Height = 26
     Align = alBottom
     TabOrder = 1
@@ -406,8 +406,8 @@ object FormMain: TFormMain
   object Panel3: TPanel
     Left = 0
     Top = 0
-    Width = 440
-    Height = 425
+    Width = 679
+    Height = 558
     Align = alClient
     BevelOuter = bvNone
     Color = clGray
@@ -415,8 +415,9 @@ object FormMain: TFormMain
     object Panel3D: TPanel
       Left = 0
       Top = 0
-      Width = 386
-      Height = 337
+      Width = 679
+      Height = 558
+      Align = alClient
       BevelOuter = bvNone
       Color = clNone
       TabOrder = 0

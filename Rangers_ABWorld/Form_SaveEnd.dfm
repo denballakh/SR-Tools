@@ -51,48 +51,18 @@ object FormSaveEnd: TFormSaveEnd
     Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goEditing]
     TabOrder = 1
     OnDrawCell = DGLDrawCell
-    OnGetEditText = DGLGetEditText
-    OnSelectCell = DGLSelectCell
-    OnSetEditText = DGLSetEditText
     ColWidths = (
       156
       48
       56)
   end
-  object BitBtnAdd: TBitBtn
+  object BitBtnSaveTest: TBitBtn
     Left = 304
     Top = 8
     Width = 73
     Height = 25
-    Caption = 'Add'
-    TabOrder = 2
-    OnClick = BitBtnAddClick
-  end
-  object BitBtnDelete: TBitBtn
-    Left = 304
-    Top = 32
-    Width = 73
-    Height = 25
-    Caption = 'Delete'
-    TabOrder = 3
-    OnClick = BitBtnDeleteClick
-  end
-  object BitBtnSave: TBitBtn
-    Left = 304
-    Top = 56
-    Width = 73
-    Height = 25
     Caption = 'Save'
-    TabOrder = 4
-    OnClick = BitBtnSaveClick
-  end
-  object BitBtnSaveTest: TBitBtn
-    Left = 304
-    Top = 80
-    Width = 73
-    Height = 25
-    Caption = 'Save test'
-    TabOrder = 5
+    TabOrder = 2
     OnClick = BitBtnSaveTestClick
   end
 end

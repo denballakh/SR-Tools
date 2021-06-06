@@ -407,8 +407,9 @@ begin
 
   DecimalSeparator := '.';
 
-  GUnitPath := RegUser_GetString('', 'UnitPath', 'c:');
-  GRangersPath := RegUser_GetString('', 'RangersPath', 'c:\Rangers');
+  GUnitPath := RegUser_GetString('', 'UnitPath', 'D:');
+  GRangersPath := RegUser_GetString('', 'RangersPath', 'D:\Rangers');
+
   GWLCount := RegUser_GetDWORD('', 'WLCount', GWLCount);
   GWLFront := RegUser_GetDWORD('', 'WLFront', GWLFront);
   GWLBack := RegUser_GetDWORD('', 'WLBack', GWLBack);
@@ -416,26 +417,9 @@ begin
   KeyGroupList_List := TList.Create;
 
   ComboBoxZoneGraph.Items.Clear;
-  if FileExists(GRangersPath + '\CFG\CD\ABWall.txt') then
-  begin
-    bp := TBlockParEC.Create;
-    bp.LoadFromFile(PChar(ansistring(GRangersPath + '\CFG\CD\ABWall.txt')));
-    bp2 := bp.Block['2'];
-    cnt := bp2.Par_Count;
-    for i := 0 to cnt - 1 do
-      ComboBoxZoneGraph.Items.Add(bp2.Par_GetName(i));
-    bp.Free;
-  end;
 
   FFPSLast := 0;
   FFPSCnt := 0;
-
-  Panel3D.Width := 800;
-  Panel3D.Height := 600;
-  Panel3D.Constraints.MinWidth := Panel3D.Width;
-  Panel3D.Constraints.MaxWidth := Panel3D.Width;
-  Panel3D.Constraints.MinHeight := Panel3D.Height;
-  Panel3D.Constraints.MaxHeight := Panel3D.Height;
 
   Application.OnMessage := AppMessage;
   Application.OnDeactivate := ApplicationDeactivate;
@@ -1442,15 +1426,15 @@ begin
 end;
 
 procedure TFormMain.UpdateCaption;
-// var
-//   tstr: WideString;
+ var
+   tstr: WideString;
 begin
-  // tstr := 'Rangers ABWorld v0.' + IntToStr(GVersion);
-  // if GFileName <> '' then
-  //   tstr := tstr + ' [' + File_Name(GFileName) + ']';
-  // Caption := tstr;
+   tstr := 'Rangers ABWorld v0.' + IntToStr(GVersion);
+   if GFileName <> '' then
+     tstr := tstr + ' [' + File_Name(GFileName) + ']';
+   Caption := tstr;
 
-  Caption := File_Name(GFileName);
+  //Caption := File_Name(GFileName);
 end;
 
 procedure TFormMain.UpdateInfo;
@@ -2256,11 +2240,7 @@ end;
 
 procedure TFormMain.MM_File_SaveEndClick(Sender: TObject);
 begin
-  if (not FileExists(GRangersPath + '\CFG\CD\ABMap.txt')) or (not FileExists(GRangersPath + '\CFG\ABMap.txt')) then
-  begin
-    ShowMessage('Rangers not found');
-    exit;
-  end;
+
   FormSaveEnd.ShowModal;
   exit;
 

@@ -10,29 +10,17 @@ type
   TFormSaveEnd = class(TForm)
     BitBtn1: TBitBtn;
     DGL: TDrawGrid;
-    BitBtnAdd: TBitBtn;
-    BitBtnDelete: TBitBtn;
-    BitBtnSave: TBitBtn;
     BitBtnSaveTest: TBitBtn;
     Label1: TLabel;
     Label2: TLabel;
     procedure FormShow(Sender: TObject);
     procedure FormHide(Sender: TObject);
     procedure DGLDrawCell(Sender: TObject; ACol, ARow: integer; Rect: TRect; State: TGridDrawState);
-    procedure DGLGetEditText(Sender: TObject; ACol, ARow: integer; var Value: string);
-    procedure DGLSelectCell(Sender: TObject; ACol, ARow: integer; var CanSelect: boolean);
-    procedure DGLSetEditText(Sender: TObject; ACol, ARow: integer; const Value: string);
-    procedure BitBtnAddClick(Sender: TObject);
-    procedure BitBtnDeleteClick(Sender: TObject);
-    procedure BitBtnSaveClick(Sender: TObject);
     procedure BitBtnSaveTestClick(Sender: TObject);
   private
     { Private declarations }
   public
     { Public declarations }
-
-    FBPCD: TBlockParEC;
-    FBPMap: TBlockParEC;
 
     FRowCnt: integer;
     procedure Save(filename, filename2: WideString);
@@ -51,36 +39,23 @@ uses Form_Main, Global, EC_Str, EC_Buf, EC_File, ABKey, ABPoint, ABTriangle, ABL
 procedure TFormSaveEnd.FormShow(Sender: TObject);
 begin
   Label1.Caption := '0';
-
-  FBPCD := TBlockParEC.Create;
-  FBPMap := TBlockParEC.Create;
-
-  FBPCD.LoadFromFile(PChar(ansistring(GRangersPath + '\CFG\CD\ABMap.txt')), true);
-  FBPMap.LoadFromFile(PChar(ansistring(GRangersPath + '\CFG\ABMap.txt')), true);
-
-  FRowCnt := FBPMap.Block_Count;
-  if FRowCnt < 1 then
-    DGL.RowCount := 2
-  else
-    DGL.RowCount := FRowCnt + 1;
+  FRowCnt := 1;
+  DGL.RowCount := FRowCnt + 1;
 end;
 
 procedure TFormSaveEnd.FormHide(Sender: TObject);
 begin
-  FBPCD.Free;
-  FBPCD := nil;
-  FBPMap.Free;
-  FBPMap := nil;
-
   ab_OptClear;
 end;
 
 procedure TFormSaveEnd.DGLDrawCell(Sender: TObject; ACol, ARow: integer; Rect: TRect; State: TGridDrawState);
 var
   tstr: WideString;
+  mapname: WideString;
 begin
   tstr := '';
 
+  if GFileName = '' then mapname := 'NEW' else mapname := File_Name(GFileName);
   if ARow = 0 then
   begin
     if ACol = 0 then
@@ -102,12 +77,10 @@ begin
   end
   else if (ARow - 1) < FRowCnt then
   begin
-    if ACol = 0 then
-      tstr := FBPMap.Block_GetName(ARow - 1)
-    else if ACol = 1 then
-      tstr := FBPMap.Block_Get(ARow - 1).Par['Portal']
-    else
-      tstr := FBPMap.Block_Get(ARow - 1).Par['Priority'];
+
+    if ACol = 0 then tstr := mapname
+    else if ACol = 1 then tstr := '1'
+    else tstr := '100';
 
     SaveCanvasPar(DGL.Canvas);
     DGL.Canvas.Font.Style := [];
@@ -117,115 +90,6 @@ begin
       tstr);
     LoadCanvasPar(DGL.Canvas);
   end;
-end;
-
-procedure TFormSaveEnd.DGLSelectCell(Sender: TObject; ACol, ARow: integer; var CanSelect: boolean);
-begin
-  CanSelect := (ARow - 1) < FRowCnt;
-end;
-
-procedure TFormSaveEnd.DGLGetEditText(Sender: TObject; ACol, ARow: integer; var Value: string);
-begin
-  if ((ARow - 1) < 0) or ((ARow - 1) >= FRowCnt) then
-    exit;
-
-  if ACol = 0 then
-    Value := FBPMap.Block_GetName(ARow - 1)
-  else if ACol = 1 then
-    Value := FBPMap.Block_Get(ARow - 1).Par['Portal']
-  else if ACol = 2 then
-    Value := FBPMap.Block_Get(ARow - 1).Par['Priority'];
-end;
-
-procedure TFormSaveEnd.DGLSetEditText(Sender: TObject; ACol, ARow: integer; const Value: string);
-var
-  newname, oldname: WideString;
-begin
-  if ((ARow - 1) < 0) or ((ARow - 1) >= FRowCnt) then
-    exit;
-
-  if ACol = 0 then
-  begin
-    newname := TrimEx(Value);
-    if newname <> '' then
-      if FBPMap.Block_GetNE(newname) = nil then
-      begin
-        oldname := FBPMap.Block_GetName(ARow - 1);
-
-        FBPMap.Block_SetName(ARow - 1, Value);
-        FBPMap.Block_Get(ARow - 1).Par_Set('Path', 'ABMap.' + newname);
-
-        FBPCD.Par_SetName(oldname, newname);
-        FBPCD.Par_Set(newname, 'data\ABMap\' + newname + '.map');
-
-        FBPCD.Par_SetName(oldname + '_', newname + '_');
-        FBPCD.Par_Set(newname + '_', 'data\ABMap\' + newname + '.opt');
-
-        RenameFile(GRangersPath + '\DATA\ABMap\' + oldname + '.map', GRangersPath + '\DATA\ABMap\' + newname + '.map');
-        RenameFile(GRangersPath + '\DATA\ABMap\' + oldname + '.opt', GRangersPath + '\DATA\ABMap\' + newname + '.opt');
-      end;
-  end
-  else if ACol = 1 then
-    FBPMap.Block_Get(ARow - 1).Par_Set('Portal', Value)
-  else if ACol = 2 then
-    FBPMap.Block_Get(ARow - 1).Par_Set('Priority', Value);
-
-  FBPCD.SaveInFile(PChar(ansistring(GRangersPath + '\CFG\CD\ABMap.txt')), true);
-  FBPMap.SaveInFile(PChar(ansistring(GRangersPath + '\CFG\ABMap.txt')), true);
-end;
-
-procedure TFormSaveEnd.BitBtnAddClick(Sender: TObject);
-var
-  newname: WideString;
-begin
-  newname := GUIDToStr(NewGUID);
-  with FBPMap.Block_Add(newname) do
-  begin
-    Par_Add('Portal', '1,2,3');
-    Par_Add('Priority', '100');
-    Par_Add('Path', 'ABMap.' + newname);
-  end;
-  FBPCD.Par_Add(newname, 'data\ABMap\' + newname + '.map');
-  FBPCD.Par_Add(newname + '_', 'data\ABMap\' + newname + '.opt');
-
-  FBPCD.SaveInFile(PChar(ansistring(GRangersPath + '\CFG\CD\ABMap.txt')), true);
-  FBPMap.SaveInFile(PChar(ansistring(GRangersPath + '\CFG\ABMap.txt')), true);
-
-  FRowCnt := FRowCnt + 1;
-  DGL.RowCount := FRowCnt + 1;
-  DGL.Row := FRowCnt + 1 - 1;
-  DGL.Repaint;
-
-  BitBtnSaveClick(Sender);
-end;
-
-procedure TFormSaveEnd.BitBtnDeleteClick(Sender: TObject);
-var
-  i: integer;
-begin
-  i := DGL.Row - 1;
-  if (i < 0) or (i >= FRowCnt) then
-    exit;
-
-  if MessageBox(Handle, 'Delete ?', 'Query', MB_YESNO or MB_ICONQUESTION) <> idYes then
-    exit;
-
-  Name := FBPMap.Block_GetName(i);
-
-  FBPMap.Block_Delete(i);
-  FBPCD.Par_Delete(Name);
-  FBPCD.Par_Delete(Name + '_');
-  DeleteFile(GRangersPath + '\DATA\ABMap\' + Name + '.map');
-
-  FBPCD.SaveInFile(PChar(ansistring(GRangersPath + '\CFG\CD\ABMap.txt')), true);
-  FBPMap.SaveInFile(PChar(ansistring(GRangersPath + '\CFG\ABMap.txt')), true);
-
-  FRowCnt := FRowCnt - 1;
-  if FRowCnt < 1 then
-    DGL.RowCount := 2
-  else
-    DGL.RowCount := FRowCnt + 1;
-  DGL.Repaint;
 end;
 
 procedure TFormSaveEnd.Save(filename, filename2: WideString);
@@ -283,28 +147,12 @@ begin
   Point_ClearNo;
 end;
 
-procedure TFormSaveEnd.BitBtnSaveClick(Sender: TObject);
-var
-  i: integer;
-begin
-  i := DGL.Row - 1;
-  if (i < 0) or (i >= FRowCnt) then
-    exit;
-
-  Screen.Cursor := crHourglass;
-
-  Save(GRangersPath + '\DATA\ABMap\' + FBPMap.Block_GetName(i) + '.map',
-    GRangersPath + '\DATA\ABMap\' + FBPMap.Block_GetName(i) + '.opt');
-
-  Screen.Cursor := crDefault;
-end;
-
 procedure TFormSaveEnd.BitBtnSaveTestClick(Sender: TObject);
 begin
   Screen.Cursor := crHourglass;
 
-  Save(GRangersPath + '\DATA\edit.map',
-    GRangersPath + '\DATA\edit.opt');
+  if GFileName = '' then Save(GRangersPath + '\DATA\NEW.map', GRangersPath + '\DATA\NEW.opt')
+  else Save(GRangersPath + '\DATA\' + File_Name(GFileName) + '.map', GRangersPath + '\DATA\' + File_Name(GFileName) + '.opt');
 
   Screen.Cursor := crDefault;
 end;
