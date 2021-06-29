@@ -1,0 +1,217 @@
+object FormMain: TFormMain
+  Left = 191
+  Top = 103
+  Width = 746
+  Height = 480
+  HorzScrollBar.Visible = False
+  VertScrollBar.Visible = False
+  Caption = 'ScriptViewer for game Rangers'
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'MS Sans Serif'
+  Font.Style = []
+  OldCreateOrder = False
+  ShowHint = True
+  WindowState = wsMaximized
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnResize = FormResize
+  OnShow = FormShow
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 738
+    Height = 27
+    Align = alTop
+    TabOrder = 0
+    object SpeedButtonArrow: TSpeedButton
+      Left = 187
+      Top = 2
+      Width = 23
+      Height = 22
+      GroupIndex = 1
+      Down = True
+      Flat = True
+      Glyph.Data = {
+        SaveType = 2
+        File = 'TFormMain_SpeedButtonArrow_Glyph_Data.bmp'
+      }
+      OnClick = SpeedButtonArrowClick
+    end
+    object SpeedButtonRectText: TSpeedButton
+      Left = 210
+      Top = 2
+      Width = 23
+      Height = 22
+      GroupIndex = 1
+      Flat = True
+      Glyph.Data = {
+        SaveType = 2
+        File = 'TFormMain_SpeedButtonRectText_Glyph_Data.bmp'
+      }
+      OnClick = SpeedButtonRectTextClick
+    end
+    object SpeedButtonCreatePoint: TSpeedButton
+      Left = 233
+      Top = 2
+      Width = 23
+      Height = 22
+      GroupIndex = 1
+      Flat = True
+      Glyph.Data = {
+        SaveType = 2
+        File = 'TFormMain_SpeedButtonCreatePoint_Glyph_Data.bmp'
+      }
+      OnClick = SpeedButtonCreatePointClick
+    end
+    object SpeedButtonNew: TSpeedButton
+      Left = 3
+      Top = 2
+      Width = 23
+      Height = 22
+      Flat = True
+      Glyph.Data = {
+        SaveType = 2
+        File = 'TFormMain_SpeedButtonNew_Glyph_Data.bmp'
+      }
+      OnClick = SpeedButtonNewClick
+    end
+    object SpeedButtonLoad: TSpeedButton
+      Left = 26
+      Top = 2
+      Width = 23
+      Height = 22
+      Flat = True
+      Glyph.Data = {
+        SaveType = 2
+        File = 'TFormMain_SpeedButtonLoad_Glyph_Data.bmp'
+      }
+      OnClick = SpeedButtonLoadClick
+    end
+    object SpeedButtonSave: TSpeedButton
+      Left = 49
+      Top = 2
+      Width = 23
+      Height = 22
+      Hint = 'Click+Control - Save as'
+      Flat = True
+      Glyph.Data = {
+        SaveType = 2
+        File = 'TFormMain_SpeedButtonSave_Glyph_Data.bmp'
+      }
+      OnClick = SpeedButtonSaveClick
+    end
+    object RxSpeedButton1: TRxSpeedButton
+      Left = 72
+      Top = 2
+      Width = 23
+      Height = 22
+      DropDownMenu = PopupMenuAction
+      Flat = True
+    end
+    object SpeedButtonAbout: TSpeedButton
+      Left = 80
+      Top = 2
+      Width = 23
+      Height = 22
+      Flat = True
+      Glyph.Data = {
+        SaveType = 2
+        File = 'TFormMain_SpeedButtonNew_Glyph_Data.bmp'
+      }
+
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 425
+    Width = 738
+    Height = 21
+    Align = alBottom
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 4
+      Top = 4
+      Width = 21
+      Height = 13
+      Caption = 'Pos:'
+    end
+    object LabelPosCursor: TLabel
+      Left = 27
+      Top = 4
+      Width = 74
+      Height = 13
+      Caption = 'LabelPosCursor'
+    end
+  end
+  object PanelDI: TPanel
+    Left = 0
+    Top = 27
+    Width = 738
+    Height = 398
+    Align = alClient
+    BevelOuter = bvNone
+    TabOrder = 2
+    object DI: TPaintBox
+      Left = 0
+      Top = 0
+      Width = 738
+      Height = 398
+      Align = alClient
+      OnDblClick = DIDblClick
+      OnMouseDown = DIMouseDown
+      OnMouseMove = DIMouseMove
+      OnMouseUp = DIMouseUp
+      OnPaint = DIPaint
+    end
+    object PanelInfo: TPanel
+      Left = 360
+      Top = 152
+      Width = 34
+      Height = 18
+      AutoSize = True
+      Color = 11859962
+      TabOrder = 0
+      Visible = False
+      object LabelInfo: TLabel
+        Left = 1
+        Top = 1
+        Width = 32
+        Height = 16
+        Caption = 'Info'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'Courier New'
+        Font.Pitch = fpFixed
+        Font.Style = []
+        ParentFont = False
+        ShowAccelChar = False
+      end
+    end
+  end
+  object PopupMenuPoint: TPopupMenu
+    Left = 216
+    Top = 163
+  end
+  object OpenDialog1: TOpenDialog
+    DefaultExt = '*.svr'
+    Filter = '*.svr|*.svr'
+    Left = 48
+    Top = 115
+  end
+  object SaveDialog1: TSaveDialog
+    DefaultExt = '*.svr'
+    Filter = '*.svr|*.svr'
+    Left = 80
+    Top = 115
+  end
+  object PopupMenuAction: TPopupMenu
+    Left = 72
+    Top = 35
+  end
+end

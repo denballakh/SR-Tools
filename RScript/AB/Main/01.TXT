@@ -1,0 +1,86 @@
+Version=1
+KeyGroup {
+    0 {
+        Name=1
+    }
+    1 {
+        Name=2
+    }
+}
+Point {
+    0 {
+        Id=6DC9D328-BBF5-49D9-83C6-43573EB451DA
+        Pos=-3.1411,-5.7227,0.0001
+    }
+    1 {
+        Id=326C9A81-38CC-4FA9-A1BE-235797394D36
+        Pos=-10.5142,26.9564,0.0000
+    }
+    2 {
+        Id=A764144B-9D54-4655-B733-63EC4C13F2CD
+        Pos=3.9903,27.0423,0.0000
+    }
+    3 {
+        Id=E0632819-FBD6-4A02-AC95-A71CDED4089E
+        Pos=-17.8714,14.0430,0.0000
+    }
+    4 {
+        Id=1DB70023-AE93-4CDE-B1FC-91D7B6971ED8
+        Pos=10.7656,13.6425,0.0000
+    }
+}
+Polygon {
+    0 {
+        0 {
+            Point=1
+            UV=0.0000,0.0000
+            Diffuse=1,0,00 7e 00 ff,ff ff ff ff
+        }
+        1 {
+            Point=0
+            UV=1.0000,0.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff,ff 00 00 ff,00 ff ff ff
+        }
+        2 {
+            Point=2
+            UV=0.0000,1.0000
+            Diffuse=1,0,00 7e 00 ff,ff ff ff ff
+        }
+    }
+    1 {
+        0 {
+            Point=2
+            UV=0.0000,0.0000
+            Diffuse=1,0,ff 8f 00 ff,ff ff ff ff
+        }
+        1 {
+            Point=0
+            UV=1.0000,0.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff,ff 00 00 ff,00 ff ff ff
+        }
+        2 {
+            Point=4
+            UV=0.0000,1.0000
+            Diffuse=1,0,00 ff ff ff,ff ff ff ff
+        }
+    }
+    2 {
+        0 {
+            Point=0
+            UV=0.0000,0.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff,ff 00 00 ff,00 ff ff ff
+        }
+        1 {
+            Point=1
+            UV=1.0000,0.0000
+            Diffuse=1,0,ff 8f 00 ff,ff ff ff ff
+        }
+        2 {
+            Point=3
+            UV=0.0000,1.0000
+            Diffuse=1,0,00 ff ff ff,ff ff ff ff
+        }
+    }
+}
+Line {
+}

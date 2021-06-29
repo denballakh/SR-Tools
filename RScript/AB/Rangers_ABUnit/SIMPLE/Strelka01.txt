@@ -1,0 +1,123 @@
+Version=1
+KeyGroup {
+    0 {
+        Name=a1
+    }
+}
+Point {
+    0 {
+        Id=400FCEE2-DD46-4B46-B976-D1D4085A827B
+        Pos=-8.0771,-17.6915,0.0000
+        PortId=Up
+        PortLink=1
+    }
+    1 {
+        Id=65A47CA5-6B0B-42EF-98FD-7201350E3F22
+        Pos=-8.0178,30.8092,0.0000
+        PortId=Down
+        PortLink=1
+    }
+    2 {
+        Id=196C102F-754D-4ECB-B1B8-0642A0571918
+        Pos=-17.9945,22.6895,0.0000
+    }
+    3 {
+        Id=5A179E7A-37AD-419E-B0EC-AEF6C3BC0C6B
+        Pos=-8.0968,-12.8513,0.0000
+    }
+    4 {
+        Id=289B6B41-21FA-4BD5-90F5-B8C56C822B61
+        Pos=2.5317,22.7883,0.0000
+    }
+    5 {
+        Id=A1D48D99-CA6E-4845-88AD-9CA04D546871
+        Pos=-18.2711,32.0340,0.0000
+    }
+    6 {
+        Id=4E45C1D3-805A-4F9A-B46D-D70F4326B291
+        Pos=2.6503,32.4291,0.0000
+    }
+    7 {
+        Id=74906959-3453-450D-A1CC-87DEEED2D420
+        Pos=-7.7214,19.8249,0.0000
+    }
+}
+Polygon {
+    0 {
+        0 {
+            Point=2
+            UV=0.0000,0.0000
+            Diffuse=1,0,00 ff ff ff
+        }
+        1 {
+            Point=3
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff ff ff,00 00 ff ff
+        }
+        2 {
+            Point=5
+            UV=0.0000,1.0000
+            Diffuse=1,0,00 00 ff ff
+        }
+    }
+    1 {
+        0 {
+            Point=3
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff ff ff,00 00 ff ff
+        }
+        1 {
+            Point=4
+            UV=1.0000,0.0000
+            Diffuse=1,0,00 ff ff ff
+        }
+        2 {
+            Point=6
+            UV=0.0000,1.0000
+            Diffuse=1,0,00 00 ff ff
+        }
+    }
+    2 {
+        0 {
+            Point=3
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff ff ff,00 ff ff ff
+        }
+        1 {
+            Point=6
+            UV=1.0000,0.0000
+            Diffuse=1,0,00 00 ff ff
+        }
+        2 {
+            Point=7
+            UV=0.0000,1.0000
+            Diffuse=1,0,00 03 ff ff
+        }
+    }
+    3 {
+        0 {
+            Point=5
+            UV=0.0000,0.0000
+            Diffuse=1,0,00 00 ff ff
+        }
+        1 {
+            Point=3
+            UV=1.0000,0.0000
+            Diffuse=1,0,00 ff ff ff
+        }
+        2 {
+            Point=7
+            UV=0.0000,1.0000
+            Diffuse=1,0,00 00 ff ff
+        }
+    }
+}
+Line {
+    0 {
+        Type=Stop,Hide
+        PointStart=0
+        PointEnd=1
+        DiffuseStart=1,0,00 ff ff ff
+        DiffuseEnd=1,0,00 00 ff ff
+    }
+}

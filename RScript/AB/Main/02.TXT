@@ -1,0 +1,447 @@
+Version=1
+KeyGroup {
+    0 {
+    }
+}
+Point {
+    0 {
+        Id=C4ADE2AB-A4D1-47D1-9EE9-CE207EA9D2C2
+        Pos=-103.4897,-81.9622,0.0000
+    }
+    1 {
+        Id=A115C8B4-3060-496B-BB93-BFA243CE78CD
+        Pos=-105.5917,-71.3950,0.0000
+    }
+    2 {
+        Id=36D1753E-490F-4595-806F-0312ADD449D4
+        Pos=-103.4897,-60.8279,0.0000
+    }
+    3 {
+        Id=573AD89C-5083-4831-B5F7-4002911AFAD0
+        Pos=-97.5039,-51.8695,0.0000
+    }
+    4 {
+        Id=43C64DF8-FEE4-4C87-BFC7-60DB6C1A8F0C
+        Pos=-88.5455,-45.8837,0.0000
+    }
+    5 {
+        Id=3EDC1C9E-D0AB-44B6-A11E-1C60FD9282B5
+        Pos=-77.9785,-43.7818,0.0000
+    }
+    6 {
+        Id=8C17C2B4-CA2A-452F-9997-A4BA4B537C2C
+        Pos=-67.4113,-45.8837,0.0000
+    }
+    7 {
+        Id=C3418265-CF66-4EA8-9BAC-6C8DADC51370
+        Pos=-58.4529,-51.8695,0.0000
+    }
+    8 {
+        Id=B228A499-1429-4C65-85E4-4E2E6FF5EA06
+        Pos=-52.4671,-60.8279,0.0000
+    }
+    9 {
+        Id=482C8855-0E5A-451E-A2F8-99D53B8B0221
+        Pos=-50.3652,-71.3950,0.0000
+    }
+    10 {
+        Id=AE3344CF-D371-43E1-AE62-B6E52432A99D
+        Pos=-52.4671,-81.9621,0.0000
+    }
+    11 {
+        Id=A3F94992-EF26-49C2-B34B-FB862BDE2081
+        Pos=-58.4529,-90.9205,0.0000
+    }
+    12 {
+        Id=74D1330A-D7F4-42DC-9886-3470D3C177A6
+        Pos=-67.4113,-96.9063,0.0000
+    }
+    13 {
+        Id=E95D70E1-FA25-48C6-89DB-CD9F1C0190F9
+        Pos=-77.9785,-99.0083,0.0000
+    }
+    14 {
+        Id=F58D6DF9-ECD5-4D6E-827B-57BD85246E62
+        Pos=-88.5455,-96.9064,0.0000
+    }
+    15 {
+        Id=C8AC92D1-F8B4-4639-9A4E-E05CEE59ECE4
+        Pos=-98.3972,-90.0521,0.0000
+    }
+    16 {
+        Id=02740F24-CE91-46E2-BE3A-1E515C7BB9CE
+        Pos=-78.3137,-70.6612,0.0000
+    }
+}
+Polygon {
+    0 {
+        0 {
+            Point=14
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=13
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    1 {
+        0 {
+            Point=13
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=12
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    2 {
+        0 {
+            Point=12
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=11
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    3 {
+        0 {
+            Point=10
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=9
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    4 {
+        0 {
+            Point=9
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=8
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    5 {
+        0 {
+            Point=11
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=10
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    6 {
+        0 {
+            Point=15
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=14
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    7 {
+        0 {
+            Point=0
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=15
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    8 {
+        0 {
+            Point=1
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=0
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    9 {
+        0 {
+            Point=2
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=1
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    10 {
+        0 {
+            Point=3
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=2
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    11 {
+        0 {
+            Point=4
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=3
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    12 {
+        0 {
+            Point=5
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=4
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    13 {
+        0 {
+            Point=6
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=5
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    14 {
+        0 {
+            Point=7
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=6
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+    15 {
+        0 {
+            Point=8
+            UV=0.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        1 {
+            Point=7
+            UV=1.0000,0.0000
+            Diffuse=2,500,500,00 ff 00 ff,00 42 00 ff
+        }
+        2 {
+            Point=16
+            UV=0.0000,1.0000
+            Diffuse=2,300,300,00 ff 00 ff,00 ff ff ff
+        }
+    }
+}
+Line {
+    0 {
+        PointStart=13
+        PointEnd=14
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    1 {
+        PointStart=12
+        PointEnd=13
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    2 {
+        PointStart=11
+        PointEnd=12
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    3 {
+        PointStart=10
+        PointEnd=11
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    4 {
+        PointStart=9
+        PointEnd=10
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    5 {
+        PointStart=8
+        PointEnd=9
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    6 {
+        PointStart=7
+        PointEnd=8
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    7 {
+        PointStart=6
+        PointEnd=7
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    8 {
+        PointStart=5
+        PointEnd=6
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    9 {
+        PointStart=4
+        PointEnd=5
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    10 {
+        PointStart=3
+        PointEnd=4
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    11 {
+        PointStart=2
+        PointEnd=3
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    12 {
+        PointStart=1
+        PointEnd=2
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    13 {
+        PointStart=0
+        PointEnd=1
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    14 {
+        PointStart=0
+        PointEnd=15
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+    15 {
+        PointStart=14
+        PointEnd=15
+        DiffuseStart=2,250,250,00 ff 00 ff,00 00 00 ff
+        DiffuseEnd=2,250,250,00 ff 00 ff,00 00 00 ff
+    }
+}

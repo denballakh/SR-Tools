@@ -1,0 +1,103 @@
+CoefLink=20
+
+//ColorBG=216,208,200
+ColorBG=206,198,190
+ColorActive=255,50,50
+ColorParent=255,0,0
+ColorInfo=226,200,133
+ColorInfoText=0,0,0
+ColorName=0,0,0
+
+LinkColor {
+	Default=129,72,57
+	DefaultArrow=255,255,255
+	Active=255,50,50
+	ActiveArrow=255,100,100
+
+	TState,TState=29,52,77
+	TDialog,TDialogMsg=100,100,255
+	TDialogAnswer,TDialogMsg=100,100,255
+	TGroup,TGroup=100,100,255
+	TStar,TStar=100,100,255
+}
+
+Text {
+	RunInitScript=Run init script
+	RunGlobal=Run global
+	VarGlobal=Global
+}
+
+// SetShip=  1-ts_Ranger 2-ts_Warrior 4-ts_Pirate 8-ts_Transport 16-ts_Liner 32-ts_Diplomat 64-ts_K0 128-ts_K1 256-ts_K2 512-ts_K3 1024-ts_K4 2048-ts_K5 4096-ts_Tranclucator 8192-ts_Ruins
+// SetOwner= 1-Maloc 2-Peleng 4-People 8-Fiy 16-Gaal 32-Kling 64-None
+// GRunFrom= 0-after landing 1-before takeoff 2-after start jump 3-before end jump
+
+// 1=get
+// 2=set
+// 3=1(get)+2(set)
+Function {
+	3=boolean	~EndState			~									~
+	3=boolean	~GroupIn			~<Group>,<Star,Planet,Place>		~
+	3=int		~CountIn			~<Group>,<Star,Planet,Place>		~
+	3=int		~CountIn			~<Group>							~
+	3=			~ShipOut			~									~
+	3=int		~CurTurn			~									~
+	3=			~AddPlanetNews		~str								~
+	3=			~AutoBattle			~<Ship>								~
+	3=			~SetData			~dword								~
+	3=			~SetData			~dword,int							~
+	3=dword		~GetData			~									~
+	3=dword		~GetData			~int								~
+	3=int		~Dist				~<Ship,Place,Star,Planet>,<Ship,Place,Star,Planet>~
+	3=			~ShipJoin			~<Group>,<Ship>						~
+	3=boolean	~ShipInScript		~<Ship>								~
+	3=boolean	~ShipInCurScript	~<Ship>								~
+	3=int		~ShipCntWeapon		~<Ship>								~
+	3=boolean	~ShipCanJump		~<Ship>,<Star>,<Star>				~
+	3=boolean	~ShipInStar			~<Ship>,<Star>						~
+	3=boolean	~ShipInPlanet		~<Ship>,<Planet>					~
+	3=boolean	~ShipInNormalSpace	~<Ship>								~
+	3=			~ShipDestroy		~<Ship>								~
+	3=int		~ShipMoney			~<Ship>								~
+	3=			~ShipMoney			~<Ship>,int							~
+	3=			~GetOwner			~<Ship>								~
+	3=			~GiveReward			~<Ship>,owner,revard				~
+	3=int		~GalaxyMoney		~type1,type2						~ type1(0,1,2,3,4)=(Mini,Small,Average,Big,Huge) type2(0,1,2,3,4,5)=(Maloc,Peleng,People,Fei,Gaal,Kling)
+	3=int		~HullDamage			~<Ship>								~
+	3=int		~Hitpoints			~<Ship>								~
+	3=int		~Hit				~<Ship>								~ [<Ship>]
+	3=			~ChangeGlobalRelationsShips ~<Ship>,[<Star,Ship>],typechange,procent,setship,setowner ~ typechange= 0-ToMin 1-ToMax 2-Add
+	3=			~ChangeGlobalRelationsPlanets ~<Ship>,[<Star>],typechange,procent,setowner ~ typechange= 0-ToMin 1-ToMax 2-Add
+	3=int		~GlobalRelationsShips ~<Ship>,[<Star>],setship,setowner	~
+	3=int		~GlobalRelationsPlanets ~<Ship>,[<Star>],setowner		~
+    3=			~SetRelationGroup	~<Group>,<Group>,type				~ 0-War 1-Bad 2-Normal 3-Good 4-Best
+    3=			~SetRelationPlanet	~<Planet>,<Group>,type				~ 0-War 1-Bad 2-Normal 3-Good 4-Best
+	3=			~UseTranclucator	~<Ship>								~
+	3=int		~RangersCapital		~									~
+	3=boolean	~GroupToShip		~<Group>							~
+	3=boolean	~ItemExist			~<Item>								~
+	3=boolean	~ItemIn				~<Item>,<Star,Group,Ship,Planet>	~
+	3=int		~ItemCost			~<Item>								~
+	3=int		~ItemCount			~<Ship>,itemType					~
+	3=			~ItemDestroy		~<Item>,type						~ 0-No destroy 1-Mini explosion 2-Bomb explosion >2-High explosion (type=hitpoints)    -=Не показывать выбитые хитпоинты
+	3=			~DropItem			~<Ship>,ItemType[[,Explotable],<Item>] ~
+	3=			~DropScriptItem		~<Ship>,<Item>						~
+	3=			~ItemCost			~<Item>								~
+	3=			~DeleteEquipment	~<Ship>,itemType					~
+	3=int		~CountTurn			~<Ship>,<Planet,Place>				~
+	3=int		~GoodsCount			~<Ship>,type						~ 0-food 1-Medicine 2-Technics 3-Luxury 4-Minerals 5-Alcohol 6-Arms 7-Narcotics
+	3=			~GoodsDrop			~<Ship>,type,cnt,<Item>				~ 0-food 1-Medicine 2-Technics 3-Luxury 4-Minerals 5-Alcohol 6-Arms 7-Narcotics
+	3=			~ShipGoods			~<Ship>,type,cnt					~ 0-food 1-Medicine 2-Technics 3-Luxury 4-Minerals 5-Alcohol 6-Arms 7-Narcotics
+	3=boolean	~Ether				~<EtherType>,<str>,<str>,<Ship>		~<EtherType>,<str>,<str>,<ship>[,<Ship>[,<ship>]]
+	3=boolean	~Dialog				~<Dialog>,<Planet,Group>			~<Dialog>,[[<Group>],...[<Planet> or <Group>]]
+	3=str		~Name				~<Star,Planet,Ship>					~
+	3=str		~ShortName			~<Star,Planet,Ship>					~
+	3=str		~SetName			~<Ship>,str							~
+	3=int		~Rnd				~min,max							~
+	3=int		~GameDateTxtByTurn	~turn								~
+	3=dword		~Id					~<Ship,Planet,Star>					~
+	3=			~GRun				~									~
+	3=int		~GCntRun			~GScriptName						~
+	3=int		~GLastTurnRun		~GScriptName[,zn]					~
+	3=int		~GAllCntRun			~[<class>]							~
+	3=int		~StatusPlayer		~									~ 1=Trader 0=Warrior -1=Pirate
+}
