@@ -424,6 +424,7 @@ object FormMain: TFormMain
       OnMouseDown = Panel3DMouseDown
       OnMouseMove = Panel3DMouseMove
       OnMouseUp = Panel3DMouseUp
+      OnMouseWheel = Panel3DMouseWheel
     end
   end
   object MainMenu1: TMainMenu

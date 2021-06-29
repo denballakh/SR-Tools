@@ -1,0 +1,66 @@
+unknown path="C:\\DAB\\Prog\\Delphi\\Rangers\\DATA\\Planet\\";
+
+array dir1;
+int dir1cnt;
+int	i;
+int u;
+int t;
+int radius;
+array fl;
+int flcnt;
+float sx;
+float sy;
+
+out("In="+path+"\n");
+
+dir1=WI_DirList(path);
+dir1cnt=count(dir1);
+i=0;
+t=0;
+while(i<dir1cnt) {
+//	out(dir1[i]+"\n");
+
+	fl=WI_FileList(path+dir1[i]);
+	flcnt=count(fl);
+	u=0;
+	while(u<flcnt) {
+//		out(fl[u]);
+		out("    "+t+"=data\\Planet\\"+dir1[i]+"\\"+fl[u]+"\n");
+		t=t+1;
+		u=u+1;
+	}
+
+	free(fl);
+
+	i=i+1;
+}
+free(dir1);
+
+dir1=WI_DirList(path);
+dir1cnt=count(dir1);
+i=0;
+t=0;
+while(i<dir1cnt) {
+	radius=(0+dir1[i])/2;
+
+	fl=WI_FileList(path+dir1[i]);
+	flcnt=count(fl);
+	u=0;
+	while(u<flcnt) {
+		out(""+t+" {\n");
+		out("    Radius="+radius+"\n");
+		out("    Image=Bm.Planet.T."+t+"\n");
+		out("    SmeImage="+radius+","+radius+"\n");
+		out("    ImageMap=Bm.Planet.M.0\n");
+		out("    SmeImageMap=4,4\n");
+		out("    PosZ=Planet\n");
+		out("}\n");
+		t=t+1;
+		u=u+1;
+	}
+
+	free(fl);
+
+	i=i+1;
+}
+free(dir1);

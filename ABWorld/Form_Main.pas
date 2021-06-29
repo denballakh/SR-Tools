@@ -98,12 +98,16 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
     procedure Timer1Timer(Sender: TObject);
+
+    procedure Panel3DMouseWheel(var Message: TMessage);
     procedure Panel3DMouseMove(Sender: TObject; Shift: TShiftState; X, Y: integer);
-    procedure MM_Unit_LoadClick(Sender: TObject);
     procedure Panel3DMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
     procedure Panel3DMouseUp(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
+
+    procedure MM_Unit_LoadClick(Sender: TObject);
     procedure MM_View_PointClick(Sender: TObject);
     procedure MM_View_WorldLineClick(Sender: TObject);
+
     procedure SaveAs1Click(Sender: TObject);
     procedure Open1Click(Sender: TObject);
     procedure Save1Click(Sender: TObject);
@@ -421,6 +425,15 @@ begin
   FFPSLast := 0;
   FFPSCnt := 0;
 
+  Panel3D.Width := 800;
+  Panel3D.Height := 600;
+
+  Panel3D.Constraints.MinWidth := 600;
+  Panel3D.Constraints.MinHeight := 400;
+
+  // Panel3D.Constraints.MaxWidth := 1920;
+  // Panel3D.Constraints.MaxHeight := 1080;
+
   Application.OnMessage := AppMessage;
   Application.OnDeactivate := ApplicationDeactivate;
 
@@ -434,14 +447,15 @@ begin
   if not Assigned(Direct3DCreate8) then
     raise Exception.Create('GetProcAddress');
 
-  //    GR_lpD3D:=Direct3DCreate8(120);
+  // GR_lpD3D:=Direct3DCreate8(120);
   asm
            MOV     EAX,120
-           push  EAX
+           PUSH    EAX
            MOV     EAX,Direct3DCreate8
            CALL    EAX
            MOV     GR_lpD3D,EAX
   end;
+
   if GR_lpD3D = nil then
     raise Exception.Create('Direct3DCreate8');
 
@@ -464,13 +478,6 @@ begin
   GSmeY := Panel3D.Height div 2;
 
   SWLBuild;
-{    with ab_Obj3D_Add do begin
-      CreateSphere(ab_WorldRadius/3,12,$ffffffff);
-        SetPos(Dxyz(GSmeX,GSmeY,0));
-        FUnitFirst.FType:=D3DPT_LINESTRIP;
-        FUnitFirst.FCnt:=FUnitFirst.FCnt*3;
-    end;}
-
   BuildBG;
 
   UpdateInfo();
@@ -708,13 +715,39 @@ begin
   end;
 end;
 
+procedure TFormMain.Panel3DMouseWheel(var Message: TMessage);
+var   Control: TControl;
+begin
+    // Control := ControlAtPos(ScreenToClient(SmallPointToPoint(TWMMouseWheel(Message).Pos)), False, True);
+    // if Assigned(Control) and (Control <> ActiveControl) then
+    // begin
+    //      ShowMessage(Control.Name);
+    //      Message.Result := Control.Perform(CM_MOUSEWHEEL, Message.WParam, Message.LParam);
+    //      if Message.Result = 0 then
+    //         Control.DefaultHandler(Message);
+    //  end else inherited MouseWheelHandler(Message);
+end;
+
 procedure TFormMain.Panel3DMouseDown(Sender: TObject; Button: TMouseButton; Shift: TShiftState; X, Y: integer);
 //var
 //    _ctrl,_shift:boolean;
 begin
   //    _ctrl:=(GetAsyncKeyState(VK_CONTROL) and $8000)=$8000;
   //    _shift:=(GetAsyncKeyState(VK_SHIFT) and $8000)=$8000;
+  // Shift: TShiftState - множество из значений, каждое из которых соотвествует состоянию: 
+  // Нажата клавиша  SHIFT - ssShift;
+  // Нажата клавиша ALT - ssAlt;
+  // Нажата клавиша CTRL - ssCtrl
+  // Нажата  левая кнопка мыши - ssLeft;
+  // Нажата правая кнопка мыши - ssRight;
+  // Нажата средняя клавиша мыши - ssMiddle;
+  // Использован двойной клик мыши - ssDouble.
+
   ActiveControl := nil;
+
+  if (VK_MBUTTON in Button) then begin
+
+  end;
 
   if (ssRight in Shift) then
     if (WorldUnit_Sel <> nil) and (PickUnit(Point(x, y)) = WorldUnit_Sel) then

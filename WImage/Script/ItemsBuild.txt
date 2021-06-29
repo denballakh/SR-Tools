@@ -1,0 +1,138 @@
+unknown path="C:\\RangersG\\Items\\";
+unknown outdir="C:\\RangersG\\ItemsBuild\\";
+
+array dir1;
+int dir1cnt;
+int	i;
+array dir2;
+int dir2cnt;
+int u;
+array fl;
+int flcnt;
+int t;
+unknown image1;
+unknown image2;
+float sx;
+float sy;
+
+out("In="+path+"\n");
+out("Out="+outdir+"\n");
+
+image1=WI_Image_Create();
+image2=WI_Image_Create();
+
+dir1=WI_DirList(path);
+dir1cnt=count(dir1);
+i=0;
+while(i<dir1cnt) {
+	out(dir1[i]+"\n");
+	dir2=WI_DirList(path+dir1[i]+"\\");
+	dir2cnt=count(dir2);
+	u=0;
+	while(u<dir2cnt) {
+		out("    "+dir2[u]+"\n");
+		fl=WI_FileList(path+dir1[i]+"\\"+dir2[u]);
+		BuildGAI(fl,path+dir1[i]+"\\"+dir2[u]+"\\",outdir+"2"+dir1[i]+u+"a.gai",(dir1[i]=="RepairRobot" && u!=7) || (dir1[i]=="Scaner" && u<1),0);
+		BuildGAI(fl,path+dir1[i]+"\\"+dir2[u]+"\\",outdir+"1"+dir1[i]+u+"a.gai",(dir1[i]=="RepairRobot" && u!=7) || (dir1[i]=="Scaner" && u<1),1);
+
+		WI_Image_Load(image1,path+dir1[i]+"\\"+dir2[u]+"\\"+fl[0]);
+		WI_Filter_SubColor(image2,image1,0,0,0);
+		WI_Image_SaveGI(image2,outdir+"2"+dir1[i]+u+"i.gi",2,0);
+		WI_Image_Rescale(image1,image2,1,78.125,1,78.125,5);
+		WI_Image_SaveGI(image1,outdir+"1"+dir1[i]+u+"i.gi",2,0);
+
+		WI_Image_CutOff(image2,image1,0);
+		WI_Image_Size(image2,sx,sy);
+		if(sx>=sy) {
+			WI_Image_Rescale(image1,image2,0,32,0,32.0*sy/sx,5);
+		} else {
+			WI_Image_Rescale(image1,image2,0,32.0*sx/sy,0,32,5);
+		}
+		WI_Image_SaveGI(image1,outdir+"2"+dir1[i]+u+"s.gi",2,1);
+		if(sx>=sy) {
+			WI_Image_Rescale(image1,image2,0,25,0,25.0*sy/sx,5);
+		} else {
+			WI_Image_Rescale(image1,image2,0,25.0*sx/sy,0,25,5);
+		}
+		WI_Image_SaveGI(image1,outdir+"1"+dir1[i]+u+"s.gi",2,1);
+	
+
+		free(fl);
+		u=u+1;
+	}
+	free(dir2);
+
+	fl=WI_FileList(path+dir1[i]);
+	u=count(fl);
+	if(u) {
+		BuildGAI(fl,path+dir1[i]+"\\",outdir+"2"+dir1[i]+"a.gai",0,0);
+		BuildGAI(fl,path+dir1[i]+"\\",outdir+"1"+dir1[i]+"a.gai",0,1);
+
+		WI_Image_Load(image1,path+dir1[i]+"\\"+fl[0]);
+		WI_Filter_SubColor(image2,image1,0,0,0);
+		WI_Image_SaveGI(image2,outdir+"2"+dir1[i]+"i.gi",2,0);
+		WI_Image_Rescale(image1,image2,1,78.125,1,78.125,5);
+		WI_Image_SaveGI(image1,outdir+"1"+dir1[i]+"i.gi",2,0);
+
+		WI_Image_CutOff(image2,image1,0);
+		WI_Image_Size(image2,sx,sy);
+		if(sx>=sy) {
+			WI_Image_Rescale(image1,image2,0,32,0,32.0*sy/sx,5);
+		} else {
+			WI_Image_Rescale(image1,image2,0,32.0*sx/sy,0,32,5);
+		}
+		WI_Image_SaveGI(image1,outdir+"2"+dir1[i]+"s.gi",2,1);
+		if(sx>=sy) {
+			WI_Image_Rescale(image1,image2,0,25,0,25.0*sy/sx,5);
+		} else {
+			WI_Image_Rescale(image1,image2,0,25.0*sx/sy,0,25,5);
+		}
+		WI_Image_SaveGI(image1,outdir+"1"+dir1[i]+"s.gi",2,1);
+	}
+	free(fl);
+
+	i=i+1;
+}
+free(dir1);
+
+WI_Image_Free(image1);
+WI_Image_Free(image2);
+
+function BuildGAI(array ar,str path,str desfile,int franeobr,int scale)
+{
+	int cnt;
+	int i;
+	str frame;
+	unknown gf;
+	unknown image1;
+	unknown image2;
+
+	cnt=count(ar);
+
+	frame="[70,0-"+(cnt-1)+"]";
+	if(franeobr) frame=frame+"[70,"+(cnt-2)+"-1]";
+	out("        "+desfile+"    "+frame);
+
+	image1=WI_Image_Create();
+	image2=WI_Image_Create();
+	gf=WI_GAI_Create(desfile,cnt,0,frame);
+
+	while(i<cnt) {
+		WI_Image_Load(image1,path+ar[i]);
+		if(!scale) {
+			WI_Filter_SubColor(image2,image1,0,0,0);
+			WI_GAI_AddImage(gf,image2,2,0);
+		} else {
+			WI_Filter_SubColor(image2,image1,0,0,0);
+			WI_Image_Rescale(image1,image2,1,78.125,1,78.125,5);
+			WI_GAI_AddImage(gf,image1,2,0);
+		}
+		i=i+1;
+	}
+
+	WI_GAI_Free(gf);
+	WI_Image_Free(image1);
+	WI_Image_Free(image2);
+
+	out("    ok\n");
+}
